@@ -1,0 +1,13 @@
+distance=3500;
+angle=80;
+t0=0.001;
+initGlobals();
+[t0_, tx, ty, tz] = getDelay(distance, angle, t0);
+disp([t0, tx, ty, tz]);
+[eSig, sSigGrp, sFs, eFs] = generateSimuSignal(t0_, tx, ty, tz);
+dirname = strcat('../', num2str(distance), '_', num2str(angle), '/');
+mkdir(dirname);
+audiowrite(strcat(dirname, 'electrical.wav'), eSig, eFs, 'BitsPerSample', 8);
+audiowrite(strcat(dirname, 'sound_ch1.wav'), sSigGrp(:, 1), sFs, 'BitsPerSample', 8);
+audiowrite(strcat(dirname, 'sound_ch2.wav'), sSigGrp(:, 2), sFs, 'BitsPerSample', 8);
+audiowrite(strcat(dirname, 'sound_ch3.wav'), sSigGrp(:, 3), sFs, 'BitsPerSample', 8);
