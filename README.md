@@ -4,13 +4,13 @@
  * `Program`文件夹为定位程序。
  * `SimuProgram`文件夹为雷声模拟程序。
 
-##编译
+## 编译
 
 ```
 cd ./Program/ && make
 cd ./SimuProgram/ && make
 ```
 
-##运行顺序
+## 运行顺序
 1. 运行`cd ./SimuProgram/ && ./simu ./xxxx_yy/`，其中xxxx_yy为仿真文件夹下的模拟信号文件夹。
 2. 运行`cd ./Program/ && ./program`。
